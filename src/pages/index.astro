@@ -1,11 +1,58 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+/* index.astro – Home con estilos completos usando Tailwind (requiere integrar Tailwind en Astro: npx astro add tailwind) */
+import "../styles/global.css"; // Asegúrate de que este path exista
+const today = new Date().getFullYear();
 ---
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Curso | Arquitectura de Tecnología en la Nube</title>
+  </head>
 
-<Layout>
-	<Welcome />
-</Layout>
+  <body class="bg-gradient-to-b from-sky-50 to-white font-sans antialiased text-slate-800 min-h-screen flex flex-col">
+    <!-- BANNER -->
+    <header class="bg-gradient-to-r from-indigo-600 to-sky-600 text-white text-center py-16 shadow-md">
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+        Arquitectura de <span class="text-indigo-200">Tecnología&nbsp;en&nbsp;la&nbsp;Nube</span>
+      </h1>
+      <p class="mt-4 text-lg md:text-2xl max-w-3xl mx-auto px-4">
+        Diseña, despliega y opera soluciones cloud modernas.
+      </p>
+      <a href="/temario" class="inline-block mt-8 bg-white/10 hover:bg-white/20 backdrop-blur rounded-full px-8 py-3 text-base md:text-lg font-medium shadow transition">
+        Ver Temario Completo
+      </a>
+    </header>
+
+    <!-- MAIN -->
+    <main class="flex-1 max-w-6xl mx-auto px-6 py-16">
+      <h2 class="text-3xl font-bold mb-10 text-center">¿Qué aprenderás?</h2>
+      <div class="grid gap-8 md:grid-cols-3">
+        <!-- CARD 1 -->
+        <article class="group p-6 bg-white rounded-2xl shadow-lg hover:-translate-y-1 hover:shadow-2xl transition">
+          <div class="text-5xl mb-4">☁️</div>
+          <h3 class="text-xl font-semibold mb-2">Fundamentos Cloud</h3>
+          <p class="text-slate-600">IaaS, PaaS, SaaS y modelos de despliegue.</p>
+        </article>
+        <!-- CARD 2 -->
+        <article class="group p-6 bg-white rounded-2xl shadow-lg hover:-translate-y-1 hover:shadow-2xl transition">
+          <div class="text-5xl mb-4">🚀</div>
+          <h3 class="text-xl font-semibold mb-2">DevOps & CI/CD</h3>
+          <p class="text-slate-600">Pipelines, IaC y flujos de release en Azure.</p>
+        </article>
+        <!-- CARD 3 -->
+        <article class="group p-6 bg-white rounded-2xl shadow-lg hover:-translate-y-1 hover:shadow-2xl transition">
+          <div class="text-5xl mb-4">⚡</div>
+          <h3 class="text-xl font-semibold mb-2">Serverless & CDN</h3>
+          <p class="text-slate-600">Functions, Static Web Apps y Front Door.</p>
+        </article>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-800 text-slate-300 text-center py-6">
+      &copy; {today} Curso Arquitectura de Tecnología en la Nube — Todos los derechos reservados.
+    </footer>
+  </body>
+</html>
